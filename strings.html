@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strings</title>
+
+
+    <link rel="stylesheet" href="main.css">
+    <script src="code.js"></script>
+</head>
+<body>
+    
+    <header>
+     <h1>Strings</h1>
+   </header> 
+    
+<main>
+     <div id="divmessage"></div>
+      
+      <form method="post" action="#" name="FormInput" id="FormInput" onsubmit="return false;"></form>
+
+         <label for="textfirstName">First Name</label>
+        <input type="text" name="textfirstName" id="textfirstName" placeholder="ex. Mary Jane">
+    <br>
+         <label for="TextLastname">Last Name</label>
+         <input type="text" name="TextLastname" id="TextLastname" placeholder="ex. Watson">
+    
+        <br>
+           
+ <label for="textZipCode">Zip Code</label>
+           <input type="text" name="textZipCode" id="textZipCode">
+           <br>
+       <button onclick="validateForm();">Save Inputs</button>
+       
+        </form>
+
+<script>
+function validateForm(){
+    let fullname = "";
+
+    let firstname = document.getElementById("textfirstName").value.trim();
+
+    
+    let lastname = document.getElementById("TextLastname").value.trim();
+
+    let zipcode =document.getElementById("textZipCode").value.trim();
+
+
+    console.log("Firstname=" + firstname);
+    console.log("Lastname=" + lastname);
+    console.log("zipcode" + zipcode);
+
+
+    if (fullname.length > 10 || fullname.length == 1){
+        message = "Access denied. try again";
+        console.log( "invalid name");
+    }
+    else if (zipcode.length != 5){
+      message = "invalid zip Code, try again";
+      console.log ("invalid zip");
+    
+}
+ else{
+message = "welcome " + firstname + "The secret word is true love."
+
+
+ }
+
+document.getElementById("divmessage").textContent= message;
+
+}
+</script>
+
+   </main>
+</body>
+</html>
