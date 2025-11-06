@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome</title>
+</head>
+<body>
+    <header>
+        <h1>Palindrome Tester</h1>
+    </header>
+    <main>
+
+        <form onsubmit="return false;">
+        <label for="textinput">Word to Test:</label>
+        <input type="text" id="textinput" required>
+
+        <button onclick="testpalin();">Test Word</button>
+        </form>
+        <div id="divResult"></div>
+    </main>
+<!--TODO; move to a external Javascript file-->
+    <script>
+// function to test for the palindrome
+function testpalin(){
+    //get the value that the user emntered in the textbox
+    let userInput = document.getElementById("textinput").value.trim();
+
+    console.log("userinput=" + userInput);
+
+    if(isPalindrome(userInput)){
+    document.getElementById("divResult").textContent = "yes," + userInput + "is a pslindrome."
+    }
+    else{
+    document.getElementById("divResult").textContent = "no," + userInput + "is not a pslindrome."
+ }
+}
+
+function isPalindrome(wordToTest){
+ let cleanword = wordToTest.replace(/\s/g, "");
+
+ cleanword = cleanword.toLowerCase();
+ 
+ console.log("cleanedword=" + cleanword);
+ 
+ let arrcleaned = cleanword.split("");
+ 
+ arrcleaned = arrcleaned.reverse();
+
+ let reversedWord = arrcleaned.join("");
+
+ console.log("reversedword=" + reversedWord);
+
+ //compare if the clean and reversed words are ythe same 
+ return cleanword == reversedWord;
+
+}
+
+    </script> 
+</body>
+</html>
