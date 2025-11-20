@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Sound</title>
+</head>
+<body>
+
+    <h1>Play Sound</h1>
+    <main>
+<div id = "DivAudio"></div>
+
+<button id= "bttnAddAudio"onclick = "addAudio();" >Add Audio</button>
+
+<button id= "bttnPlayAudio" onclick= "playaudio();" >Play Audio</button>
+<button id= "bttnPauseAudio" onclick = "pauseaudio()">Pause Audio</button>
+
+    </main>
+    
+    <script>
+       
+       function addAudio(){
+
+        let audioElement = document. createElement("Audio");
+        audioElement.setAttribute("id","myAudio");
+        audioElement.setAttribute ("src", "us-lab-background.mp3");
+        audioElement.setAttribute("controls", "controls");
+
+          document.getElementById("DivAudio").appendChild(audioElement);
+
+          document.getElementById("bttnAddAudio").hidden = "true";
+       }
+
+
+       function playaudio(){
+    
+        let audio = document.getElementById("myAudio");
+         audio.play();
+       }
+       function pauseaudio(){
+        let audio = document.getElementById("myAudio");
+         audio.pause();
+       }
+    </script>
+</body>
+</html>
