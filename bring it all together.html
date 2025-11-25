@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bring it All Together!</title>
+</head>
+<body>
+    
+
+    </body>
+    <header>
+        <h1>BRING IT ALL TOGETHER</h1>
+    </header>
+    <main>
+
+        <form onsubmit="return false;">
+        <label for="textinput">Test your Word:</label>
+        <input type="text" id="textinput" required>
+
+        <button onclick="testpalin();">Confirm</button>
+        <button onclick="testpalin();">Cancel</button>
+        </form>
+        <div id="divResult"></div>
+    </main>
+<!--TODO; move to a external Javascript file-->
+    <script>
+// function to test for the palindrome
+function testpalin(){
+    //get the value that the user emntered in the textbox
+    let userInput = document.getElementById("textinput").value.trim();
+
+    console.log("userinput=" + userInput);
+
+    if(isPalindrome(userInput)){
+    document.getElementById("divResult").textContent = "Pass," + userInput + "is a pslindrome."
+    }
+    else{
+    document.getElementById("divResult").textContent = "Fail," + userInput + "is not a pslindrome."
+ }
+}
+
+function isPalindrome(wordToTest){
+ let cleanword = wordToTest.replace(/\s/g, "");
+
+ cleanword = cleanword.toLowerCase();
+ 
+ console.log("cleanedword=" + cleanword);
+ 
+ let arrcleaned = cleanword.split("");
+ 
+ arrcleaned = arrcleaned.reverse();
+
+ let reversedWord = arrcleaned.join("");
+
+ console.log("reversedword=" + reversedWord);
+
+ //compare if the clean and reversed words are ythe same 
+ return cleanword == reversedWord;
+
+}
+
+    </script> 
+     <div>
+        <!--ul means unordered list -->
+        <ul id ="ulDisney">
+
+
+        </ul>
+
+        <h3>Add a Disney Princess</h3>
+   <input type="text" name="" id="textNewPrincess">
+   <button onclick="addPrincess()">Confirm</button>
+    </div>
+    
+    <script>
+        // if we need a store of 20 plants, it will need 20 varaibles, but that will lead to problems.
+    
+        let princess1 = "Tiana";
+        let princess2 = "Ariel";
+        let princess3 = "Jasmine";
+        let princess4 = "Mulan";
+        let princess5 = "Rapunzel";
+        let princess6 = "Moana";
+
+     // better way to do this is a data structure - however we will use a array. 
+     let arrprincess = ["Tiana", "Ariel", "Jasmine", "Mulan", "Rapunzel", 
+     "Moana"];
+
+     //function to add plant to array
+     function addPrincess(){
+       // get new plant name 
+       let newPrincess = document.getElementById("textNewPrincess"),value;
+
+       //add the new plant name 
+       arrprincess.push(newPrincess);
+
+     }
+
+     //function will loop through the array of plants and show them in the ul in HTML code 
+     function showAll(){
+        //loop through the plant array and build a li for each one 
+        // shortcut/nickname  to the ul in HTML
+        let ulPrincess = document.getElementById("ulDisney");
+
+        //use a foreteach loop to run through the list
+        arrprincess.forEach(function(princess, index){
+// create list items - li - using Javascript
+let li = document.createElement("li");
+// this will show the plant name onscreen in the ul 
+li.textContent = princess;
+
+
+ulPrincess.appendChild(li);
+        });
+        
+    }
+
+    showAll();
+    </script>
+     <h1>Make a Sound!</h1>
+     <main>
+ <div id = "DivAudio"></div>
+ 
+ <button id= "bttnAddAudio"onclick = "addAudio();" >Add Sound</button>
+ 
+ <button id= "bttnPlayAudio" onclick= "playaudio();" >Play</button>
+ <button id= "bttnPauseAudio" onclick = "pauseaudio();">Pause</button>
+ 
+     </main>
+     
+     <script>
+        
+        function addAudio(){
+ 
+         let audioElement = document. createElement("Audio");
+         audioElement.setAttribute("id","myAudio");
+         audioElement.setAttribute ("src", "water-splash-02-352021.mp3");
+         audioElement.setAttribute("controls", "controls");
+ 
+           document.getElementById("DivAudio").appendChild(audioElement);
+ 
+           document.getElementById("bttnAddAudio").hidden = "true";
+        }
+ 
+ 
+        function playaudio(){
+     
+         let audio = document.getElementById("myAudio");
+          audio.play();
+        }
+        function pauseaudio(){
+         let audio = document.getElementById("myAudio");
+          audio.pause();
+        }
+        </script>
+</body>
+</html>
