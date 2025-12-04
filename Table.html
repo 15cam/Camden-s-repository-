@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+<link rel="stylesheet" href="main.css">
+<style>
+  table{
+    max-width: 400px;
+    border-collapse: collapse;
+  
+  }
+ tr, th, td{
+  padding: 10px;
+ }
+
+ tr{
+  border: 2px solid black;
+
+ }
+
+ th{
+  background-color: aqua;
+  color: navy;
+  text-align: left;
+
+
+ }
+
+ tr:nth-child(even){
+  background-color: rgb(92, 105, 221);
+  color: navy;
+
+ }
+
+
+ tr:hover{
+  background-color: rgb(240, 236, 0);
+  color: navy;
+
+
+ }
+</style>
+  </head>
+
+<body>
+  <main>
+    <h1>Programming Mistakes</h1>
+
+    <table id = "tblData">  
+        <caption>Programming Mistakes and $</caption>
+        <!--tr is table row - each row needs to be in tr-->
+       <!-- <tr>
+            td - table data
+<td></td>
+<td></td>
+        </tr> -->
+        <tr>
+          <!--th is table heading -->
+          <th>Project</th>
+          <th>Year</th>
+          <th>Cost</th>
+    </table>
+</tr>
+  </main>  
+  <script>
+   function loadData(){
+
+     // array of problem projects
+     let arrProblems = [
+        [ "Crowdstrike", 2024, "$5.48"],
+        [ "Facebook", 2020, "$90M"],
+        [ "Citibank", 2020, "$900M"],
+        [ "Mars Climate Orbiter", 1999, "$327M"],
+     ];
+  
+  
+        // nested for loops to display data
+        for (let i=0; i<arrProblems.length; i++){
+  // create table row to store data
+let tr=document.createElement("tr");
+
+
+// loop through each nested array
+for (let j=0; j < arrProblems[i].length; j++){
+// create table row to display one piece of data
+let td=document.createElement("td");
+td.textContent = arrProblems[i][j];
+tr. appendChild(td);
+
+}
+
+document.getElementById("tblData").appendChild(tr);
+   }
+}
+
+loadData();
+
+  </script>
+</body>
+</html>
